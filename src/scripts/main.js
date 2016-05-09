@@ -33,7 +33,7 @@ function initRenderer() {
 
 function initCamera() {
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 10000);
-    camera.position.set(0, 500, 1000);
+    camera.position.set(0, 0, 1500);
     camera.lookAt(scene.position);
 }
 
@@ -42,12 +42,12 @@ function initControls() {
     controls.userPan = false;
     controls.userPanSpeed = 0.0;
     controls.maxDistance = 5000.0;
-    controls.maxPolarAngle = Math.PI * 0.495;
+    // controls.maxPolarAngle = Math.PI * 0.495;
     controls.center.set(0, 0, 0);
 }
 
 function initLight() {
-    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
+    const hemisphereLight = new THREE.HemisphereLight(0xFF2A68, 0xFFCD02, 1);
     hemisphereLight.position.set(-20, 20, 30);
     scene.add(hemisphereLight);
 }
