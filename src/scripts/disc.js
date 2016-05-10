@@ -3,7 +3,7 @@ const THREE = require('three');
 export default class Disc {
     constructor() {
         this.radius = 500;
-        const geometry = new THREE.CircleGeometry(this.radius, 60);
+        const geometry = new THREE.CircleGeometry(this.radius, 100);
         const material = new THREE.MeshPhongMaterial({
             color: 0xffffff,
             specular: 0xffffff,
