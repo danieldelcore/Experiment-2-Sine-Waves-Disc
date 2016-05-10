@@ -1,9 +1,9 @@
-# Experiment 1
+# Experiment 2
 
-![alt tag](thumb.png)
+![alt tag](thumb.gif)
 
-## Sine Waves in THREE.js
-This wave pattern is accomplished by calculating a sine wave from the centre of the PlaneGeometry through to the other vertices. For each vertex, calculate the distance from the centre point. Using that distance apply the sin to get the vertical positions of the vertex. Then use time (ts) to create the wave animation. Additionally, there are two variables *size* and *magnitude* that allow us to manipulate the vertical deviation and wave length.
+## Sine Waves 2
+Sine waves applied to a circle geometry in THREE.js. Using a similar method to experiment #1, A sine wave is applied around the diameter of the geometry using the distances between the vertices creating a warped effect around the centre vertex. Again, using the two variables  *size* and *magnitude* to allow us to manipulate the vertical deviation and wave length.
 
 ## Initial setup
 - `npm install --global gulp-cli` : Install gulp globally
