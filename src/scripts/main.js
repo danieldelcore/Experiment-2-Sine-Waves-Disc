@@ -1,7 +1,7 @@
 /* globals Detector */
 
 import THREE from 'three';
-import Disk from './disk';
+import Disc from './disc';
 
 if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
@@ -14,7 +14,7 @@ let camera;
 let scene;
 let renderer;
 
-const disk = new Disk();
+const disc = new Disc();
 
 function onResize() {
     const width = window.innerWidth;
@@ -66,11 +66,11 @@ function init() {
     initControls();
     initLight();
 
-    scene.add(disk.mesh);
+    scene.add(disc.mesh);
 }
 
 function render(ts) {
-    disk.update(ts);
+    disc.update(ts);
     controls.update();
     renderer.render(scene, camera);
 }

@@ -1,6 +1,6 @@
 const THREE = require('three');
 
-export default class Disk {
+export default class Disc {
     constructor() {
         this.radius = 500;
         const geometry = new THREE.CircleGeometry(this.radius, 60);
