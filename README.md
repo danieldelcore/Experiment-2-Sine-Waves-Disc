@@ -1,6 +1,6 @@
 # Experiment 2
 
-![alt tag](thumb.gif)
+![alt tag](thumb.jpg)
 
 ## Sine Waves 2
 Sine waves applied to a circle geometry in THREE.js. Using a similar method to experiment #1, A sine wave is applied around the circumference of the geometry using the distances between the vertices creating a warped effect around the centre vertex. Again, using the two variables  *size* and *magnitude* to allow us to manipulate the vertical deviation and wave length.
