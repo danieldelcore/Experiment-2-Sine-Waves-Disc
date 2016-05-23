@@ -3,10 +3,12 @@ const THREE = require('three');
 export default class Disc {
     constructor(gui) {
         this.config = {
-            size: 50.0,
+            // size: 50.0,
+            size: 72,
             magnitude: 100,
             speed: 500,
             radius: 500,
+            absolute: false,
         };
 
         const geometry = new THREE.CircleGeometry(this.config.radius, 100);
@@ -35,12 +37,13 @@ export default class Disc {
         folder.add(this.config, 'size', 10, 250);
         folder.add(this.config, 'speed', 1, 1000);
         folder.add(this.config, 'magnitude', 10, 200);
+        folder.add(this.config, 'absolute');
     }
 
     // Return the ArcLength between the two vectors
     getArcLength(fromVec, toVec) {
         const angle = Math.atan2(toVec.y - fromVec.y, toVec.x - fromVec.x);
-        return (this.config.radius * angle);
+        return this.config.radius * angle;
     }
 
     update(timeStamp) {
@@ -51,13 +54,19 @@ export default class Disc {
             let dist = 0;
 
             if (i === 1) {
-                dist = - this.getArcLength(this.vEnd, v);
+                dist = -this.getArcLength(this.vEnd, v);
             } else {
                 dist = this.getArcLength(this.vStart, v);
             }
 
+            if (this.config.absolute) {
+                dist = Math.abs(dist);
+            }
+
             v.z = Math.sin(dist / -size + (timeStamp / speed)) * magnitude;
         }
+
+        this.hasLooped = true;
 
         this.mesh.geometry.verticesNeedUpdate = true;
     }
