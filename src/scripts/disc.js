@@ -8,6 +8,8 @@ export default class Disc {
             speed: 500,
             radius: 500,
             segments: 100,
+            morph: true,
+            morphSpeed: 1000,
         };
 
         const geometry = new THREE.CircleGeometry(this.config.radius, this.config.segments);
@@ -32,6 +34,10 @@ export default class Disc {
             .onChange(c => this.config.size = Number(c));
         folder.add(this.config, 'speed', 1, 1000);
         folder.add(this.config, 'magnitude', -500, 500);
+
+        const folderMorph = gui.addFolder('Morph');
+        folderMorph.add(this.config, 'morph');
+        folderMorph.add(this.config, 'morphSpeed', 10, 1000);
     }
 
     getCircumference() {
@@ -39,12 +45,13 @@ export default class Disc {
     }
 
     update(timeStamp) {
-        const { size, magnitude, speed, segments } = this.config;
+        const { size, magnitude, speed, segments, morph, morphSpeed } = this.config;
+        const m = (morph) ? magnitude * Math.sin(timeStamp / morphSpeed) : magnitude;
 
         for (let i = 1; i < this.vCount; i++) {
             const dist = (this.getCircumference() / segments) * i;
             const v = this.mesh.geometry.vertices[i];
-            v.z = Math.sin(dist / -size + (timeStamp / speed)) * magnitude;
+            v.z = Math.sin(dist / -size + (timeStamp / speed)) * m;
         }
 
         this.mesh.geometry.verticesNeedUpdate = true;
