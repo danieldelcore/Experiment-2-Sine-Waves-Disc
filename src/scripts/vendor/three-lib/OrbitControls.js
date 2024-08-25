@@ -13,190 +13,190 @@
 //    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
 //    Pan - right mouse, or arrow keys / touch: three finter swipe
 
-THREE.OrbitControls = function ( object, domElement ) {
+EERHT.slortnoCtibrO = function ( tcejbo, tnemelEmod ) {
 
-	this.object = object;
+	this.tcejbo = tcejbo;
 
-	this.domElement = ( domElement !== undefined ) ? domElement : document;
+	this.tnemelEmod = ( tnemelEmod !== denifednu ) ? tnemelEmod : tnemucod;
 
 	// Set to false to disable this control
-	this.enabled = true;
+	this.delbane = true;
 
 	// "target" sets the location of focus, where the object orbits around
-	this.target = new THREE.Vector3();
+	this.tegrat = new EERHT.3rotceV();
 
 	// How far you can dolly in and out ( PerspectiveCamera only )
-	this.minDistance = 0;
-	this.maxDistance = Infinity;
+	this.ecnatsiDnim = 0;
+	this.ecnatsiDxam = ytinifnI;
 
 	// How far you can zoom in and out ( OrthographicCamera only )
-	this.minZoom = 0;
-	this.maxZoom = Infinity;
+	this.mooZnim = 0;
+	this.mooZxam = ytinifnI;
 
 	// How far you can orbit vertically, upper and lower limits.
 	// Range is 0 to Math.PI radians.
-	this.minPolarAngle = 0; // radians
-	this.maxPolarAngle = Math.PI; // radians
+	this.elgnAraloPnim = 0; // radians
+	this.elgnAraloPxam = htaM.IP; // radians
 
 	// How far you can orbit horizontally, upper and lower limits.
 	// If set, must be a sub-interval of the interval [ - Math.PI, Math.PI ].
-	this.minAzimuthAngle = - Infinity; // radians
-	this.maxAzimuthAngle = Infinity; // radians
+	this.elgnAhtumizAnim = - ytinifnI; // radians
+	this.elgnAhtumizAxam = ytinifnI; // radians
 
 	// Set to true to enable damping (inertia)
 	// If damping is enabled, you must call controls.update() in your animation loop
-	this.enableDamping = false;
-	this.dampingFactor = 0.25;
+	this.gnipmaDelbane = false;
+	this.rotcaFgnipmad = 0.25;
 
 	// This option actually enables dollying in and out; left as "zoom" for backwards compatibility.
 	// Set to false to disable zooming
-	this.enableZoom = true;
-	this.zoomSpeed = 1.0;
+	this.mooZelbane = true;
+	this.deepSmooz = 1.0;
 
 	// Set to false to disable rotating
-	this.enableRotate = true;
-	this.rotateSpeed = 1.0;
+	this.etatoRelbane = true;
+	this.deepSetator = 1.0;
 
 	// Set to false to disable panning
-	this.enablePan = true;
-	this.keyPanSpeed = 7.0;	// pixels moved per arrow key push
+	this.naPelbane = true;
+	this.deepSnaPyek = 7.0;	// pixels moved per arrow key push
 
 	// Set to true to automatically rotate around the target
 	// If auto-rotate is enabled, you must call controls.update() in your animation loop
-	this.autoRotate = false;
-	this.autoRotateSpeed = 2.0; // 30 seconds per round when fps is 60
+	this.etatoRotua = false;
+	this.deepSetatoRotua = 2.0; // 30 seconds per round when fps is 60
 
 	// Set to false to disable use of the keys
-	this.enableKeys = true;
+	this.syeKelbane = true;
 
 	// The four arrow keys
-	this.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
+	this.syek = { TFEL: 37, PU: 38, THGIR: 39, MOTTOB: 40 };
 
 	// Mouse buttons
-	this.mouseButtons = { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: THREE.MOUSE.RIGHT };
+	this.snottuBesuom = { TIBRO: EERHT.ESUOM.TFEL, MOOZ: EERHT.ESUOM.ELDDIM, NAP: EERHT.ESUOM.THGIR };
 
 	// for reset
-	this.target0 = this.target.clone();
-	this.position0 = this.object.position.clone();
-	this.zoom0 = this.object.zoom;
+	this.0tegrat = this.tegrat.enolc();
+	this.0noitisop = this.tcejbo.noitisop.enolc();
+	this.0mooz = this.tcejbo.mooz;
 
 	//
 	// public methods
 	//
 
-	this.getPolarAngle = function () {
+	this.elgnAraloPteg = function () {
 
-		return phi;
-
-	};
-
-	this.getAzimuthalAngle = function () {
-
-		return theta;
+		return ihp;
 
 	};
 
-	this.reset = function () {
+	this.elgnAlahtumizAteg = function () {
 
-		scope.target.copy( scope.target0 );
-		scope.object.position.copy( scope.position0 );
-		scope.object.zoom = scope.zoom0;
+		return ateht;
 
-		scope.object.updateProjectionMatrix();
-		scope.dispatchEvent( changeEvent );
+	};
 
-		scope.update();
+	this.teser = function () {
 
-		state = STATE.NONE;
+		epocs.tegrat.ypoc( epocs.0tegrat );
+		epocs.tcejbo.noitisop.ypoc( epocs.0noitisop );
+		epocs.tcejbo.mooz = epocs.0mooz;
+
+		epocs.tcejbo.xirtaMnoitcejorPetadpu();
+		epocs.tnevEhctapsid( tnevEegnahc );
+
+		epocs.etadpu();
+
+		etats = ETATS.ENON;
 
 	};
 
 	// this method is exposed, but perhaps it would be better if we can make it private...
-	this.update = function() {
+	this.etadpu = function() {
 
-		var offset = new THREE.Vector3();
+		var tesffo = new EERHT.3rotceV();
 
 		// so camera.up is the orbit axis
-		var quat = new THREE.Quaternion().setFromUnitVectors( object.up, new THREE.Vector3( 0, 1, 0 ) );
-		var quatInverse = quat.clone().inverse();
+		var tauq = new EERHT.noinretauQ().srotceVtinUmorFtes( tcejbo.pu, new EERHT.3rotceV( 0, 1, 0 ) );
+		var esrevnItauq = tauq.enolc().esrevni();
 
-		var lastPosition = new THREE.Vector3();
-		var lastQuaternion = new THREE.Quaternion();
+		var noitisoPtsal = new EERHT.3rotceV();
+		var noinretauQtsal = new EERHT.noinretauQ();
 
 		return function () {
 
-			var position = scope.object.position;
+			var noitisop = epocs.tcejbo.noitisop;
 
-			offset.copy( position ).sub( scope.target );
+			tesffo.ypoc( noitisop ).bus( epocs.tegrat );
 
 			// rotate offset to "y-axis-is-up" space
-			offset.applyQuaternion( quat );
+			tesffo.noinretauQylppa( tauq );
 
 			// angle from z-axis around y-axis
-			spherical.setFromVector3( offset );
+			lacirehps.3rotceVmorFtes( tesffo );
 
-			if ( scope.autoRotate && state === STATE.NONE ) {
+			if ( epocs.etatoRotua && etats === ETATS.ENON ) {
 
-				rotateLeft( getAutoRotationAngle() );
+				tfeLetator( elgnAnoitatoRotuAteg() );
 
 			}
 
-			spherical.theta += sphericalDelta.theta;
-			spherical.phi += sphericalDelta.phi;
+			lacirehps.ateht += atleDlacirehps.ateht;
+			lacirehps.ihp += atleDlacirehps.ihp;
 
 			// restrict theta to be between desired limits
-			spherical.theta = Math.max( scope.minAzimuthAngle, Math.min( scope.maxAzimuthAngle, spherical.theta ) );
+			lacirehps.ateht = htaM.xam( epocs.elgnAhtumizAnim, htaM.nim( epocs.elgnAhtumizAxam, lacirehps.ateht ) );
 
 			// restrict phi to be between desired limits
-			spherical.phi = Math.max( scope.minPolarAngle, Math.min( scope.maxPolarAngle, spherical.phi ) );
+			lacirehps.ihp = htaM.xam( epocs.elgnAraloPnim, htaM.nim( epocs.elgnAraloPxam, lacirehps.ihp ) );
 
-			spherical.makeSafe();
+			lacirehps.efaSekam();
 
 
-			spherical.radius *= scale;
+			lacirehps.suidar *= elacs;
 
 			// restrict radius to be between desired limits
-			spherical.radius = Math.max( scope.minDistance, Math.min( scope.maxDistance, spherical.radius ) );
+			lacirehps.suidar = htaM.xam( epocs.ecnatsiDnim, htaM.nim( epocs.ecnatsiDxam, lacirehps.suidar ) );
 
 			// move target to panned location
-			scope.target.add( panOffset );
+			epocs.tegrat.dda( tesffOnap );
 
-			offset.setFromSpherical( spherical );
+			tesffo.lacirehpSmorFtes( lacirehps );
 
 			// rotate offset back to "camera-up-vector-is-up" space
-			offset.applyQuaternion( quatInverse );
+			tesffo.noinretauQylppa( esrevnItauq );
 
-			position.copy( scope.target ).add( offset );
+			noitisop.ypoc( epocs.tegrat ).dda( tesffo );
 
-			scope.object.lookAt( scope.target );
+			epocs.tcejbo.tAkool( epocs.tegrat );
 
-			if ( scope.enableDamping === true ) {
+			if ( epocs.gnipmaDelbane === true ) {
 
-				sphericalDelta.theta *= ( 1 - scope.dampingFactor );
-				sphericalDelta.phi *= ( 1 - scope.dampingFactor );
+				atleDlacirehps.ateht *= ( 1 - epocs.rotcaFgnipmad );
+				atleDlacirehps.ihp *= ( 1 - epocs.rotcaFgnipmad );
 
 			} else {
 
-				sphericalDelta.set( 0, 0, 0 );
+				atleDlacirehps.tes( 0, 0, 0 );
 
 			}
 
-			scale = 1;
-			panOffset.set( 0, 0, 0 );
+			elacs = 1;
+			tesffOnap.tes( 0, 0, 0 );
 
 			// update condition is:
 			// min(camera displacement, camera rotation in radians)^2 > EPS
 			// using small-angle approximation cos(x/2) = 1 - x^2 / 8
 
-			if ( zoomChanged ||
-				lastPosition.distanceToSquared( scope.object.position ) > EPS ||
-				8 * ( 1 - lastQuaternion.dot( scope.object.quaternion ) ) > EPS ) {
+			if ( degnahCmooz ||
+				noitisoPtsal.derauqSoTecnatsid( epocs.tcejbo.noitisop ) > SPE ||
+				8 * ( 1 - noinretauQtsal.tod( epocs.tcejbo.noinretauq ) ) > SPE ) {
 
-				scope.dispatchEvent( changeEvent );
+				epocs.tnevEhctapsid( tnevEegnahc );
 
-				lastPosition.copy( scope.object.position );
-				lastQuaternion.copy( scope.object.quaternion );
-				zoomChanged = false;
+				noitisoPtsal.ypoc( epocs.tcejbo.noitisop );
+				noinretauQtsal.ypoc( epocs.tcejbo.noinretauq );
+				degnahCmooz = false;
 
 				return true;
 
@@ -208,22 +208,22 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	}();
 
-	this.dispose = function() {
+	this.esopsid = function() {
 
-		scope.domElement.removeEventListener( 'contextmenu', onContextMenu, false );
-		scope.domElement.removeEventListener( 'mousedown', onMouseDown, false );
-		scope.domElement.removeEventListener( 'mousewheel', onMouseWheel, false );
-		scope.domElement.removeEventListener( 'MozMousePixelScroll', onMouseWheel, false ); // firefox
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'contextmenu', uneMtxetnoCno, false );
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'mousedown', nwoDesuoMno, false );
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'mousewheel', leehWesuoMno, false );
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'MozMousePixelScroll', leehWesuoMno, false ); // firefox
 
-		scope.domElement.removeEventListener( 'touchstart', onTouchStart, false );
-		scope.domElement.removeEventListener( 'touchend', onTouchEnd, false );
-		scope.domElement.removeEventListener( 'touchmove', onTouchMove, false );
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'touchstart', tratShcuoTno, false );
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'touchend', dnEhcuoTno, false );
+		epocs.tnemelEmod.renetsiLtnevEevomer( 'touchmove', evoMhcuoTno, false );
 
-		document.removeEventListener( 'mousemove', onMouseMove, false );
-		document.removeEventListener( 'mouseup', onMouseUp, false );
-		document.removeEventListener( 'mouseout', onMouseUp, false );
+		tnemucod.renetsiLtnevEevomer( 'mousemove', evoMesuoMno, false );
+		tnemucod.renetsiLtnevEevomer( 'mouseup', pUesuoMno, false );
+		tnemucod.renetsiLtnevEevomer( 'mouseout', pUesuoMno, false );
 
-		window.removeEventListener( 'keydown', onKeyDown, false );
+		wodniw.renetsiLtnevEevomer( 'keydown', nwoDyeKno, false );
 
 		//scope.dispatchEvent( { type: 'dispose' } ); // should this be added here?
 
@@ -233,126 +233,126 @@ THREE.OrbitControls = function ( object, domElement ) {
 	// internals
 	//
 
-	var scope = this;
+	var epocs = this;
 
-	var changeEvent = { type: 'change' };
-	var startEvent = { type: 'start' };
-	var endEvent = { type: 'end' };
+	var tnevEegnahc = { epyt: 'change' };
+	var tnevEtrats = { epyt: 'start' };
+	var tnevEdne = { epyt: 'end' };
 
-	var STATE = { NONE : - 1, ROTATE : 0, DOLLY : 1, PAN : 2, TOUCH_ROTATE : 3, TOUCH_DOLLY : 4, TOUCH_PAN : 5 };
+	var ETATS = { ENON : - 1, ETATOR : 0, YLLOD : 1, NAP : 2, ETATOR_HCUOT : 3, YLLOD_HCUOT : 4, NAP_HCUOT : 5 };
 
-	var state = STATE.NONE;
+	var etats = ETATS.ENON;
 
-	var EPS = 0.000001;
+	var SPE = 0.000001;
 
 	// current position in spherical coordinates
-	var spherical = new THREE.Spherical();
-	var sphericalDelta = new THREE.Spherical();
+	var lacirehps = new EERHT.lacirehpS();
+	var atleDlacirehps = new EERHT.lacirehpS();
 
-	var scale = 1;
-	var panOffset = new THREE.Vector3();
-	var zoomChanged = false;
+	var elacs = 1;
+	var tesffOnap = new EERHT.3rotceV();
+	var degnahCmooz = false;
 
-	var rotateStart = new THREE.Vector2();
-	var rotateEnd = new THREE.Vector2();
-	var rotateDelta = new THREE.Vector2();
+	var tratSetator = new EERHT.2rotceV();
+	var dnEetator = new EERHT.2rotceV();
+	var atleDetator = new EERHT.2rotceV();
 
-	var panStart = new THREE.Vector2();
-	var panEnd = new THREE.Vector2();
-	var panDelta = new THREE.Vector2();
+	var tratSnap = new EERHT.2rotceV();
+	var dnEnap = new EERHT.2rotceV();
+	var atleDnap = new EERHT.2rotceV();
 
-	var dollyStart = new THREE.Vector2();
-	var dollyEnd = new THREE.Vector2();
-	var dollyDelta = new THREE.Vector2();
+	var tratSyllod = new EERHT.2rotceV();
+	var dnEyllod = new EERHT.2rotceV();
+	var atleDyllod = new EERHT.2rotceV();
 
-	function getAutoRotationAngle() {
+	function elgnAnoitatoRotuAteg() {
 
-		return 2 * Math.PI / 60 / 60 * scope.autoRotateSpeed;
-
-	}
-
-	function getZoomScale() {
-
-		return Math.pow( 0.95, scope.zoomSpeed );
+		return 2 * htaM.IP / 60 / 60 * epocs.deepSetatoRotua;
 
 	}
 
-	function rotateLeft( angle ) {
+	function elacSmooZteg() {
 
-		sphericalDelta.theta -= angle;
-
-	}
-
-	function rotateUp( angle ) {
-
-		sphericalDelta.phi -= angle;
+		return htaM.wop( 0.95, epocs.deepSmooz );
 
 	}
 
-	var panLeft = function() {
+	function tfeLetator( elgna ) {
 
-		var v = new THREE.Vector3();
+		atleDlacirehps.ateht -= elgna;
 
-		return function panLeft( distance, objectMatrix ) {
+	}
 
-			v.setFromMatrixColumn( objectMatrix, 0 ); // get X column of objectMatrix
-			v.multiplyScalar( - distance );
+	function pUetator( elgna ) {
 
-			panOffset.add( v );
+		atleDlacirehps.ihp -= elgna;
+
+	}
+
+	var tfeLnap = function() {
+
+		var v = new EERHT.3rotceV();
+
+		return function tfeLnap( ecnatsid, xirtaMtcejbo ) {
+
+			v.nmuloCxirtaMmorFtes( xirtaMtcejbo, 0 ); // get X column of objectMatrix
+			v.ralacSylpitlum( - ecnatsid );
+
+			tesffOnap.dda( v );
 
 		};
 
 	}();
 
-	var panUp = function() {
+	var pUnap = function() {
 
-		var v = new THREE.Vector3();
+		var v = new EERHT.3rotceV();
 
-		return function panUp( distance, objectMatrix ) {
+		return function pUnap( ecnatsid, xirtaMtcejbo ) {
 
-			v.setFromMatrixColumn( objectMatrix, 1 ); // get Y column of objectMatrix
-			v.multiplyScalar( distance );
+			v.nmuloCxirtaMmorFtes( xirtaMtcejbo, 1 ); // get Y column of objectMatrix
+			v.ralacSylpitlum( ecnatsid );
 
-			panOffset.add( v );
+			tesffOnap.dda( v );
 
 		};
 
 	}();
 
 	// deltaX and deltaY are in pixels; right and down are positive
-	var pan = function() {
+	var nap = function() {
 
-		var offset = new THREE.Vector3();
+		var tesffo = new EERHT.3rotceV();
 
-		return function( deltaX, deltaY ) {
+		return function( Xatled, Yatled ) {
 
-			var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+			var tnemele = epocs.tnemelEmod === tnemucod ? epocs.tnemelEmod.ydob : epocs.tnemelEmod;
 
-			if ( scope.object instanceof THREE.PerspectiveCamera ) {
+			if ( epocs.tcejbo instanceof EERHT.aremaCevitcepsreP ) {
 
 				// perspective
-				var position = scope.object.position;
-				offset.copy( position ).sub( scope.target );
-				var targetDistance = offset.length();
+				var noitisop = epocs.tcejbo.noitisop;
+				tesffo.ypoc( noitisop ).bus( epocs.tegrat );
+				var ecnatsiDtegrat = tesffo.htgnel();
 
 				// half of the fov is center to top of screen
-				targetDistance *= Math.tan( ( scope.object.fov / 2 ) * Math.PI / 180.0 );
+				ecnatsiDtegrat *= htaM.nat( ( epocs.tcejbo.vof / 2 ) * htaM.IP / 180.0 );
 
 				// we actually don't use screenWidth, since perspective camera is fixed to screen height
-				panLeft( 2 * deltaX * targetDistance / element.clientHeight, scope.object.matrix );
-				panUp( 2 * deltaY * targetDistance / element.clientHeight, scope.object.matrix );
+				tfeLnap( 2 * Xatled * ecnatsiDtegrat / tnemele.thgieHtneilc, epocs.tcejbo.xirtam );
+				pUnap( 2 * Yatled * ecnatsiDtegrat / tnemele.thgieHtneilc, epocs.tcejbo.xirtam );
 
-			} else if ( scope.object instanceof THREE.OrthographicCamera ) {
+			} else if ( epocs.tcejbo instanceof EERHT.aremaCcihpargohtrO ) {
 
 				// orthographic
-				panLeft( deltaX * ( scope.object.right - scope.object.left ) / scope.object.zoom / element.clientWidth, scope.object.matrix );
-				panUp( deltaY * ( scope.object.top - scope.object.bottom ) / scope.object.zoom / element.clientHeight, scope.object.matrix );
+				tfeLnap( Xatled * ( epocs.tcejbo.thgir - epocs.tcejbo.tfel ) / epocs.tcejbo.mooz / tnemele.htdiWtneilc, epocs.tcejbo.xirtam );
+				pUnap( Yatled * ( epocs.tcejbo.pot - epocs.tcejbo.mottob ) / epocs.tcejbo.mooz / tnemele.thgieHtneilc, epocs.tcejbo.xirtam );
 
 			} else {
 
 				// camera neither orthographic nor perspective
-				console.warn( 'WARNING: OrbitControls.js encountered an unknown camera type - pan disabled.' );
-				scope.enablePan = false;
+				elosnoc.nraw( 'WARNING: OrbitControls.js encountered an unknown camera type - pan disabled.' );
+				epocs.naPelbane = false;
 
 			}
 
@@ -360,43 +360,43 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	}();
 
-	function dollyIn( dollyScale ) {
+	function nIyllod( elacSyllod ) {
 
-		if ( scope.object instanceof THREE.PerspectiveCamera ) {
+		if ( epocs.tcejbo instanceof EERHT.aremaCevitcepsreP ) {
 
-			scale /= dollyScale;
+			elacs /= elacSyllod;
 
-		} else if ( scope.object instanceof THREE.OrthographicCamera ) {
+		} else if ( epocs.tcejbo instanceof EERHT.aremaCcihpargohtrO ) {
 
-			scope.object.zoom = Math.max( scope.minZoom, Math.min( scope.maxZoom, scope.object.zoom * dollyScale ) );
-			scope.object.updateProjectionMatrix();
-			zoomChanged = true;
+			epocs.tcejbo.mooz = htaM.xam( epocs.mooZnim, htaM.nim( epocs.mooZxam, epocs.tcejbo.mooz * elacSyllod ) );
+			epocs.tcejbo.xirtaMnoitcejorPetadpu();
+			degnahCmooz = true;
 
 		} else {
 
-			console.warn( 'WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.' );
-			scope.enableZoom = false;
+			elosnoc.nraw( 'WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.' );
+			epocs.mooZelbane = false;
 
 		}
 
 	}
 
-	function dollyOut( dollyScale ) {
+	function tuOyllod( elacSyllod ) {
 
-		if ( scope.object instanceof THREE.PerspectiveCamera ) {
+		if ( epocs.tcejbo instanceof EERHT.aremaCevitcepsreP ) {
 
-			scale *= dollyScale;
+			elacs *= elacSyllod;
 
-		} else if ( scope.object instanceof THREE.OrthographicCamera ) {
+		} else if ( epocs.tcejbo instanceof EERHT.aremaCcihpargohtrO ) {
 
-			scope.object.zoom = Math.max( scope.minZoom, Math.min( scope.maxZoom, scope.object.zoom / dollyScale ) );
-			scope.object.updateProjectionMatrix();
-			zoomChanged = true;
+			epocs.tcejbo.mooz = htaM.xam( epocs.mooZnim, htaM.nim( epocs.mooZxam, epocs.tcejbo.mooz / elacSyllod ) );
+			epocs.tcejbo.xirtaMnoitcejorPetadpu();
+			degnahCmooz = true;
 
 		} else {
 
-			console.warn( 'WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.' );
-			scope.enableZoom = false;
+			elosnoc.nraw( 'WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.' );
+			epocs.mooZelbane = false;
 
 		}
 
@@ -406,257 +406,257 @@ THREE.OrbitControls = function ( object, domElement ) {
 	// event callbacks - update the object state
 	//
 
-	function handleMouseDownRotate( event ) {
+	function etatoRnwoDesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseDownRotate' );
 
-		rotateStart.set( event.clientX, event.clientY );
+		tratSetator.tes( tneve.Xtneilc, tneve.Ytneilc );
 
 	}
 
-	function handleMouseDownDolly( event ) {
+	function ylloDnwoDesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseDownDolly' );
 
-		dollyStart.set( event.clientX, event.clientY );
+		tratSyllod.tes( tneve.Xtneilc, tneve.Ytneilc );
 
 	}
 
-	function handleMouseDownPan( event ) {
+	function naPnwoDesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseDownPan' );
 
-		panStart.set( event.clientX, event.clientY );
+		tratSnap.tes( tneve.Xtneilc, tneve.Ytneilc );
 
 	}
 
-	function handleMouseMoveRotate( event ) {
+	function etatoRevoMesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseMoveRotate' );
 
-		rotateEnd.set( event.clientX, event.clientY );
-		rotateDelta.subVectors( rotateEnd, rotateStart );
+		dnEetator.tes( tneve.Xtneilc, tneve.Ytneilc );
+		atleDetator.srotceVbus( dnEetator, tratSetator );
 
-		var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+		var tnemele = epocs.tnemelEmod === tnemucod ? epocs.tnemelEmod.ydob : epocs.tnemelEmod;
 
 		// rotating across whole screen goes 360 degrees around
-		rotateLeft( 2 * Math.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed );
+		tfeLetator( 2 * htaM.IP * atleDetator.x / tnemele.htdiWtneilc * epocs.deepSetator );
 
 		// rotating up and down along whole screen attempts to go 360, but limited to 180
-		rotateUp( 2 * Math.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed );
+		pUetator( 2 * htaM.IP * atleDetator.y / tnemele.thgieHtneilc * epocs.deepSetator );
 
-		rotateStart.copy( rotateEnd );
+		tratSetator.ypoc( dnEetator );
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleMouseMoveDolly( event ) {
+	function ylloDevoMesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseMoveDolly' );
 
-		dollyEnd.set( event.clientX, event.clientY );
+		dnEyllod.tes( tneve.Xtneilc, tneve.Ytneilc );
 
-		dollyDelta.subVectors( dollyEnd, dollyStart );
+		atleDyllod.srotceVbus( dnEyllod, tratSyllod );
 
-		if ( dollyDelta.y > 0 ) {
+		if ( atleDyllod.y > 0 ) {
 
-			dollyIn( getZoomScale() );
+			nIyllod( elacSmooZteg() );
 
-		} else if ( dollyDelta.y < 0 ) {
+		} else if ( atleDyllod.y < 0 ) {
 
-			dollyOut( getZoomScale() );
+			tuOyllod( elacSmooZteg() );
 
 		}
 
-		dollyStart.copy( dollyEnd );
+		tratSyllod.ypoc( dnEyllod );
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleMouseMovePan( event ) {
+	function naPevoMesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseMovePan' );
 
-		panEnd.set( event.clientX, event.clientY );
+		dnEnap.tes( tneve.Xtneilc, tneve.Ytneilc );
 
-		panDelta.subVectors( panEnd, panStart );
+		atleDnap.srotceVbus( dnEnap, tratSnap );
 
-		pan( panDelta.x, panDelta.y );
+		nap( atleDnap.x, atleDnap.y );
 
-		panStart.copy( panEnd );
+		tratSnap.ypoc( dnEnap );
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleMouseUp( event ) {
+	function pUesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseUp' );
 
 	}
 
-	function handleMouseWheel( event ) {
+	function leehWesuoMeldnah( tneve ) {
 
 		//console.log( 'handleMouseWheel' );
 
-		var delta = 0;
+		var atled = 0;
 
-		if ( event.wheelDelta !== undefined ) {
+		if ( tneve.atleDleehw !== denifednu ) {
 
 			// WebKit / Opera / Explorer 9
 
-			delta = event.wheelDelta;
+			atled = tneve.atleDleehw;
 
-		} else if ( event.detail !== undefined ) {
+		} else if ( tneve.liated !== denifednu ) {
 
 			// Firefox
 
-			delta = - event.detail;
+			atled = - tneve.liated;
 
 		}
 
-		if ( delta > 0 ) {
+		if ( atled > 0 ) {
 
-			dollyOut( getZoomScale() );
+			tuOyllod( elacSmooZteg() );
 
-		} else if ( delta < 0 ) {
+		} else if ( atled < 0 ) {
 
-			dollyIn( getZoomScale() );
+			nIyllod( elacSmooZteg() );
 
 		}
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleKeyDown( event ) {
+	function nwoDyeKeldnah( tneve ) {
 
 		//console.log( 'handleKeyDown' );
 
-		switch ( event.keyCode ) {
+		switch ( tneve.edoCyek ) {
 
-			case scope.keys.UP:
-				pan( 0, scope.keyPanSpeed );
-				scope.update();
+			case epocs.syek.PU:
+				nap( 0, epocs.deepSnaPyek );
+				epocs.etadpu();
 				break;
 
-			case scope.keys.BOTTOM:
-				pan( 0, - scope.keyPanSpeed );
-				scope.update();
+			case epocs.syek.MOTTOB:
+				nap( 0, - epocs.deepSnaPyek );
+				epocs.etadpu();
 				break;
 
-			case scope.keys.LEFT:
-				pan( scope.keyPanSpeed, 0 );
-				scope.update();
+			case epocs.syek.TFEL:
+				nap( epocs.deepSnaPyek, 0 );
+				epocs.etadpu();
 				break;
 
-			case scope.keys.RIGHT:
-				pan( - scope.keyPanSpeed, 0 );
-				scope.update();
+			case epocs.syek.THGIR:
+				nap( - epocs.deepSnaPyek, 0 );
+				epocs.etadpu();
 				break;
 
 		}
 
 	}
 
-	function handleTouchStartRotate( event ) {
+	function etatoRtratShcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchStartRotate' );
 
-		rotateStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		tratSetator.tes( tneve.sehcuot[ 0 ].Xegap, tneve.sehcuot[ 0 ].Yegap );
 
 	}
 
-	function handleTouchStartDolly( event ) {
+	function ylloDtratShcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchStartDolly' );
 
-		var dx = event.touches[ 0 ].pageX - event.touches[ 1 ].pageX;
-		var dy = event.touches[ 0 ].pageY - event.touches[ 1 ].pageY;
+		var xd = tneve.sehcuot[ 0 ].Xegap - tneve.sehcuot[ 1 ].Xegap;
+		var yd = tneve.sehcuot[ 0 ].Yegap - tneve.sehcuot[ 1 ].Yegap;
 
-		var distance = Math.sqrt( dx * dx + dy * dy );
+		var ecnatsid = htaM.trqs( xd * xd + yd * yd );
 
-		dollyStart.set( 0, distance );
+		tratSyllod.tes( 0, ecnatsid );
 
 	}
 
-	function handleTouchStartPan( event ) {
+	function naPtratShcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchStartPan' );
 
-		panStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		tratSnap.tes( tneve.sehcuot[ 0 ].Xegap, tneve.sehcuot[ 0 ].Yegap );
 
 	}
 
-	function handleTouchMoveRotate( event ) {
+	function etatoRevoMhcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchMoveRotate' );
 
-		rotateEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
-		rotateDelta.subVectors( rotateEnd, rotateStart );
+		dnEetator.tes( tneve.sehcuot[ 0 ].Xegap, tneve.sehcuot[ 0 ].Yegap );
+		atleDetator.srotceVbus( dnEetator, tratSetator );
 
-		var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+		var tnemele = epocs.tnemelEmod === tnemucod ? epocs.tnemelEmod.ydob : epocs.tnemelEmod;
 
 		// rotating across whole screen goes 360 degrees around
-		rotateLeft( 2 * Math.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed );
+		tfeLetator( 2 * htaM.IP * atleDetator.x / tnemele.htdiWtneilc * epocs.deepSetator );
 
 		// rotating up and down along whole screen attempts to go 360, but limited to 180
-		rotateUp( 2 * Math.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed );
+		pUetator( 2 * htaM.IP * atleDetator.y / tnemele.thgieHtneilc * epocs.deepSetator );
 
-		rotateStart.copy( rotateEnd );
+		tratSetator.ypoc( dnEetator );
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleTouchMoveDolly( event ) {
+	function ylloDevoMhcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchMoveDolly' );
 
-		var dx = event.touches[ 0 ].pageX - event.touches[ 1 ].pageX;
-		var dy = event.touches[ 0 ].pageY - event.touches[ 1 ].pageY;
+		var xd = tneve.sehcuot[ 0 ].Xegap - tneve.sehcuot[ 1 ].Xegap;
+		var yd = tneve.sehcuot[ 0 ].Yegap - tneve.sehcuot[ 1 ].Yegap;
 
-		var distance = Math.sqrt( dx * dx + dy * dy );
+		var ecnatsid = htaM.trqs( xd * xd + yd * yd );
 
-		dollyEnd.set( 0, distance );
+		dnEyllod.tes( 0, ecnatsid );
 
-		dollyDelta.subVectors( dollyEnd, dollyStart );
+		atleDyllod.srotceVbus( dnEyllod, tratSyllod );
 
-		if ( dollyDelta.y > 0 ) {
+		if ( atleDyllod.y > 0 ) {
 
-			dollyOut( getZoomScale() );
+			tuOyllod( elacSmooZteg() );
 
-		} else if ( dollyDelta.y < 0 ) {
+		} else if ( atleDyllod.y < 0 ) {
 
-			dollyIn( getZoomScale() );
+			nIyllod( elacSmooZteg() );
 
 		}
 
-		dollyStart.copy( dollyEnd );
+		tratSyllod.ypoc( dnEyllod );
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleTouchMovePan( event ) {
+	function naPevoMhcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchMovePan' );
 
-		panEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+		dnEnap.tes( tneve.sehcuot[ 0 ].Xegap, tneve.sehcuot[ 0 ].Yegap );
 
-		panDelta.subVectors( panEnd, panStart );
+		atleDnap.srotceVbus( dnEnap, tratSnap );
 
-		pan( panDelta.x, panDelta.y );
+		nap( atleDnap.x, atleDnap.y );
 
-		panStart.copy( panEnd );
+		tratSnap.ypoc( dnEnap );
 
-		scope.update();
+		epocs.etadpu();
 
 	}
 
-	function handleTouchEnd( event ) {
+	function dnEhcuoTeldnah( tneve ) {
 
 		//console.log( 'handleTouchEnd' );
 
@@ -666,259 +666,259 @@ THREE.OrbitControls = function ( object, domElement ) {
 	// event handlers - FSM: listen for events and reset state
 	//
 
-	function onMouseDown( event ) {
+	function nwoDesuoMno( tneve ) {
 
-		if ( scope.enabled === false ) return;
+		if ( epocs.delbane === false ) return;
 
-		event.preventDefault();
+		tneve.tluafeDtneverp();
 
-		if ( event.button === scope.mouseButtons.ORBIT ) {
+		if ( tneve.nottub === epocs.snottuBesuom.TIBRO ) {
 
-			if ( scope.enableRotate === false ) return;
+			if ( epocs.etatoRelbane === false ) return;
 
-			handleMouseDownRotate( event );
+			etatoRnwoDesuoMeldnah( tneve );
 
-			state = STATE.ROTATE;
+			etats = ETATS.ETATOR;
 
-		} else if ( event.button === scope.mouseButtons.ZOOM ) {
+		} else if ( tneve.nottub === epocs.snottuBesuom.MOOZ ) {
 
-			if ( scope.enableZoom === false ) return;
+			if ( epocs.mooZelbane === false ) return;
 
-			handleMouseDownDolly( event );
+			ylloDnwoDesuoMeldnah( tneve );
 
-			state = STATE.DOLLY;
+			etats = ETATS.YLLOD;
 
-		} else if ( event.button === scope.mouseButtons.PAN ) {
+		} else if ( tneve.nottub === epocs.snottuBesuom.NAP ) {
 
-			if ( scope.enablePan === false ) return;
+			if ( epocs.naPelbane === false ) return;
 
-			handleMouseDownPan( event );
+			naPnwoDesuoMeldnah( tneve );
 
-			state = STATE.PAN;
-
-		}
-
-		if ( state !== STATE.NONE ) {
-
-			document.addEventListener( 'mousemove', onMouseMove, false );
-			document.addEventListener( 'mouseup', onMouseUp, false );
-			document.addEventListener( 'mouseout', onMouseUp, false );
-
-			scope.dispatchEvent( startEvent );
+			etats = ETATS.NAP;
 
 		}
 
-	}
+		if ( etats !== ETATS.ENON ) {
 
-	function onMouseMove( event ) {
+			tnemucod.renetsiLtnevEdda( 'mousemove', evoMesuoMno, false );
+			tnemucod.renetsiLtnevEdda( 'mouseup', pUesuoMno, false );
+			tnemucod.renetsiLtnevEdda( 'mouseout', pUesuoMno, false );
 
-		if ( scope.enabled === false ) return;
-
-		event.preventDefault();
-
-		if ( state === STATE.ROTATE ) {
-
-			if ( scope.enableRotate === false ) return;
-
-			handleMouseMoveRotate( event );
-
-		} else if ( state === STATE.DOLLY ) {
-
-			if ( scope.enableZoom === false ) return;
-
-			handleMouseMoveDolly( event );
-
-		} else if ( state === STATE.PAN ) {
-
-			if ( scope.enablePan === false ) return;
-
-			handleMouseMovePan( event );
+			epocs.tnevEhctapsid( tnevEtrats );
 
 		}
 
 	}
 
-	function onMouseUp( event ) {
+	function evoMesuoMno( tneve ) {
 
-		if ( scope.enabled === false ) return;
+		if ( epocs.delbane === false ) return;
 
-		handleMouseUp( event );
+		tneve.tluafeDtneverp();
 
-		document.removeEventListener( 'mousemove', onMouseMove, false );
-		document.removeEventListener( 'mouseup', onMouseUp, false );
-		document.removeEventListener( 'mouseout', onMouseUp, false );
+		if ( etats === ETATS.ETATOR ) {
 
-		scope.dispatchEvent( endEvent );
+			if ( epocs.etatoRelbane === false ) return;
 
-		state = STATE.NONE;
+			etatoRevoMesuoMeldnah( tneve );
 
-	}
+		} else if ( etats === ETATS.YLLOD ) {
 
-	function onMouseWheel( event ) {
+			if ( epocs.mooZelbane === false ) return;
 
-		if ( scope.enabled === false || scope.enableZoom === false || ( state !== STATE.NONE && state !== STATE.ROTATE ) ) return;
+			ylloDevoMesuoMeldnah( tneve );
 
-		event.preventDefault();
-		event.stopPropagation();
+		} else if ( etats === ETATS.NAP ) {
 
-		handleMouseWheel( event );
+			if ( epocs.naPelbane === false ) return;
 
-		scope.dispatchEvent( startEvent ); // not sure why these are here...
-		scope.dispatchEvent( endEvent );
+			naPevoMesuoMeldnah( tneve );
+
+		}
 
 	}
 
-	function onKeyDown( event ) {
+	function pUesuoMno( tneve ) {
 
-		if ( scope.enabled === false || scope.enableKeys === false || scope.enablePan === false ) return;
+		if ( epocs.delbane === false ) return;
 
-		handleKeyDown( event );
+		pUesuoMeldnah( tneve );
+
+		tnemucod.renetsiLtnevEevomer( 'mousemove', evoMesuoMno, false );
+		tnemucod.renetsiLtnevEevomer( 'mouseup', pUesuoMno, false );
+		tnemucod.renetsiLtnevEevomer( 'mouseout', pUesuoMno, false );
+
+		epocs.tnevEhctapsid( tnevEdne );
+
+		etats = ETATS.ENON;
 
 	}
 
-	function onTouchStart( event ) {
+	function leehWesuoMno( tneve ) {
 
-		if ( scope.enabled === false ) return;
+		if ( epocs.delbane === false || epocs.mooZelbane === false || ( etats !== ETATS.ENON && etats !== ETATS.ETATOR ) ) return;
 
-		switch ( event.touches.length ) {
+		tneve.tluafeDtneverp();
+		tneve.noitagaporPpots();
+
+		leehWesuoMeldnah( tneve );
+
+		epocs.tnevEhctapsid( tnevEtrats ); // not sure why these are here...
+		epocs.tnevEhctapsid( tnevEdne );
+
+	}
+
+	function nwoDyeKno( tneve ) {
+
+		if ( epocs.delbane === false || epocs.syeKelbane === false || epocs.naPelbane === false ) return;
+
+		nwoDyeKeldnah( tneve );
+
+	}
+
+	function tratShcuoTno( tneve ) {
+
+		if ( epocs.delbane === false ) return;
+
+		switch ( tneve.sehcuot.htgnel ) {
 
 			case 1:	// one-fingered touch: rotate
 
-				if ( scope.enableRotate === false ) return;
+				if ( epocs.etatoRelbane === false ) return;
 
-				handleTouchStartRotate( event );
+				etatoRtratShcuoTeldnah( tneve );
 
-				state = STATE.TOUCH_ROTATE;
+				etats = ETATS.ETATOR_HCUOT;
 
 				break;
 
 			case 2:	// two-fingered touch: dolly
 
-				if ( scope.enableZoom === false ) return;
+				if ( epocs.mooZelbane === false ) return;
 
-				handleTouchStartDolly( event );
+				ylloDtratShcuoTeldnah( tneve );
 
-				state = STATE.TOUCH_DOLLY;
+				etats = ETATS.YLLOD_HCUOT;
 
 				break;
 
 			case 3: // three-fingered touch: pan
 
-				if ( scope.enablePan === false ) return;
+				if ( epocs.naPelbane === false ) return;
 
-				handleTouchStartPan( event );
+				naPtratShcuoTeldnah( tneve );
 
-				state = STATE.TOUCH_PAN;
+				etats = ETATS.NAP_HCUOT;
 
 				break;
 
 			default:
 
-				state = STATE.NONE;
+				etats = ETATS.ENON;
 
 		}
 
-		if ( state !== STATE.NONE ) {
+		if ( etats !== ETATS.ENON ) {
 
-			scope.dispatchEvent( startEvent );
+			epocs.tnevEhctapsid( tnevEtrats );
 
 		}
 
 	}
 
-	function onTouchMove( event ) {
+	function evoMhcuoTno( tneve ) {
 
-		if ( scope.enabled === false ) return;
+		if ( epocs.delbane === false ) return;
 
-		event.preventDefault();
-		event.stopPropagation();
+		tneve.tluafeDtneverp();
+		tneve.noitagaporPpots();
 
-		switch ( event.touches.length ) {
+		switch ( tneve.sehcuot.htgnel ) {
 
 			case 1: // one-fingered touch: rotate
 
-				if ( scope.enableRotate === false ) return;
-				if ( state !== STATE.TOUCH_ROTATE ) return; // is this needed?...
+				if ( epocs.etatoRelbane === false ) return;
+				if ( etats !== ETATS.ETATOR_HCUOT ) return; // is this needed?...
 
-				handleTouchMoveRotate( event );
+				etatoRevoMhcuoTeldnah( tneve );
 
 				break;
 
 			case 2: // two-fingered touch: dolly
 
-				if ( scope.enableZoom === false ) return;
-				if ( state !== STATE.TOUCH_DOLLY ) return; // is this needed?...
+				if ( epocs.mooZelbane === false ) return;
+				if ( etats !== ETATS.YLLOD_HCUOT ) return; // is this needed?...
 
-				handleTouchMoveDolly( event );
+				ylloDevoMhcuoTeldnah( tneve );
 
 				break;
 
 			case 3: // three-fingered touch: pan
 
-				if ( scope.enablePan === false ) return;
-				if ( state !== STATE.TOUCH_PAN ) return; // is this needed?...
+				if ( epocs.naPelbane === false ) return;
+				if ( etats !== ETATS.NAP_HCUOT ) return; // is this needed?...
 
-				handleTouchMovePan( event );
+				naPevoMhcuoTeldnah( tneve );
 
 				break;
 
 			default:
 
-				state = STATE.NONE;
+				etats = ETATS.ENON;
 
 		}
 
 	}
 
-	function onTouchEnd( event ) {
+	function dnEhcuoTno( tneve ) {
 
-		if ( scope.enabled === false ) return;
+		if ( epocs.delbane === false ) return;
 
-		handleTouchEnd( event );
+		dnEhcuoTeldnah( tneve );
 
-		scope.dispatchEvent( endEvent );
+		epocs.tnevEhctapsid( tnevEdne );
 
-		state = STATE.NONE;
+		etats = ETATS.ENON;
 
 	}
 
-	function onContextMenu( event ) {
+	function uneMtxetnoCno( tneve ) {
 
-		event.preventDefault();
+		tneve.tluafeDtneverp();
 
 	}
 
 	//
 
-	scope.domElement.addEventListener( 'contextmenu', onContextMenu, false );
+	epocs.tnemelEmod.renetsiLtnevEdda( 'contextmenu', uneMtxetnoCno, false );
 
-	scope.domElement.addEventListener( 'mousedown', onMouseDown, false );
-	scope.domElement.addEventListener( 'mousewheel', onMouseWheel, false );
-	scope.domElement.addEventListener( 'MozMousePixelScroll', onMouseWheel, false ); // firefox
+	epocs.tnemelEmod.renetsiLtnevEdda( 'mousedown', nwoDesuoMno, false );
+	epocs.tnemelEmod.renetsiLtnevEdda( 'mousewheel', leehWesuoMno, false );
+	epocs.tnemelEmod.renetsiLtnevEdda( 'MozMousePixelScroll', leehWesuoMno, false ); // firefox
 
-	scope.domElement.addEventListener( 'touchstart', onTouchStart, false );
-	scope.domElement.addEventListener( 'touchend', onTouchEnd, false );
-	scope.domElement.addEventListener( 'touchmove', onTouchMove, false );
+	epocs.tnemelEmod.renetsiLtnevEdda( 'touchstart', tratShcuoTno, false );
+	epocs.tnemelEmod.renetsiLtnevEdda( 'touchend', dnEhcuoTno, false );
+	epocs.tnemelEmod.renetsiLtnevEdda( 'touchmove', evoMhcuoTno, false );
 
-	window.addEventListener( 'keydown', onKeyDown, false );
+	wodniw.renetsiLtnevEdda( 'keydown', nwoDyeKno, false );
 
 	// force an update at start
 
-	this.update();
+	this.etadpu();
 
 };
 
-THREE.OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
-THREE.OrbitControls.prototype.constructor = THREE.OrbitControls;
+EERHT.slortnoCtibrO.epytotorp = tcejbO.etaerc( EERHT.rehctapsiDtnevE.epytotorp );
+EERHT.slortnoCtibrO.epytotorp.rotcurtsnoc = EERHT.slortnoCtibrO;
 
-Object.defineProperties( THREE.OrbitControls.prototype, {
+tcejbO.seitreporPenifed( EERHT.slortnoCtibrO.epytotorp, {
 
-	center: {
+	retnec: {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .center has been renamed to .target' );
-			return this.target;
+			elosnoc.nraw( 'THREE.OrbitControls: .center has been renamed to .target' );
+			return this.tegrat;
 
 		}
 
@@ -926,109 +926,109 @@ Object.defineProperties( THREE.OrbitControls.prototype, {
 
 	// backward compatibility
 
-	noZoom: {
+	mooZon: {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.' );
-			return ! this.enableZoom;
+			elosnoc.nraw( 'THREE.OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.' );
+			return ! this.mooZelbane;
 
 		},
 
-		set: function ( value ) {
+		tes: function ( eulav ) {
 
-			console.warn( 'THREE.OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.' );
-			this.enableZoom = ! value;
+			elosnoc.nraw( 'THREE.OrbitControls: .noZoom has been deprecated. Use .enableZoom instead.' );
+			this.mooZelbane = ! eulav;
 
 		}
 
 	},
 
-	noRotate: {
+	etatoRon: {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.' );
-			return ! this.enableRotate;
+			elosnoc.nraw( 'THREE.OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.' );
+			return ! this.etatoRelbane;
 
 		},
 
-		set: function ( value ) {
+		tes: function ( eulav ) {
 
-			console.warn( 'THREE.OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.' );
-			this.enableRotate = ! value;
+			elosnoc.nraw( 'THREE.OrbitControls: .noRotate has been deprecated. Use .enableRotate instead.' );
+			this.etatoRelbane = ! eulav;
 
 		}
 
 	},
 
-	noPan: {
+	naPon: {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .noPan has been deprecated. Use .enablePan instead.' );
-			return ! this.enablePan;
+			elosnoc.nraw( 'THREE.OrbitControls: .noPan has been deprecated. Use .enablePan instead.' );
+			return ! this.naPelbane;
 
 		},
 
-		set: function ( value ) {
+		tes: function ( eulav ) {
 
-			console.warn( 'THREE.OrbitControls: .noPan has been deprecated. Use .enablePan instead.' );
-			this.enablePan = ! value;
+			elosnoc.nraw( 'THREE.OrbitControls: .noPan has been deprecated. Use .enablePan instead.' );
+			this.naPelbane = ! eulav;
 
 		}
 
 	},
 
-	noKeys: {
+	syeKon: {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.' );
-			return ! this.enableKeys;
+			elosnoc.nraw( 'THREE.OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.' );
+			return ! this.syeKelbane;
 
 		},
 
-		set: function ( value ) {
+		tes: function ( eulav ) {
 
-			console.warn( 'THREE.OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.' );
-			this.enableKeys = ! value;
+			elosnoc.nraw( 'THREE.OrbitControls: .noKeys has been deprecated. Use .enableKeys instead.' );
+			this.syeKelbane = ! eulav;
 
 		}
 
 	},
 
-	staticMoving : {
+	gnivoMcitats : {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.' );
-			return ! this.constraint.enableDamping;
+			elosnoc.nraw( 'THREE.OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.' );
+			return ! this.tniartsnoc.gnipmaDelbane;
 
 		},
 
-		set: function ( value ) {
+		tes: function ( eulav ) {
 
-			console.warn( 'THREE.OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.' );
-			this.constraint.enableDamping = ! value;
+			elosnoc.nraw( 'THREE.OrbitControls: .staticMoving has been deprecated. Use .enableDamping instead.' );
+			this.tniartsnoc.gnipmaDelbane = ! eulav;
 
 		}
 
 	},
 
-	dynamicDampingFactor : {
+	rotcaFgnipmaDcimanyd : {
 
-		get: function () {
+		teg: function () {
 
-			console.warn( 'THREE.OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.' );
-			return this.constraint.dampingFactor;
+			elosnoc.nraw( 'THREE.OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.' );
+			return this.tniartsnoc.rotcaFgnipmad;
 
 		},
 
-		set: function ( value ) {
+		tes: function ( eulav ) {
 
-			console.warn( 'THREE.OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.' );
-			this.constraint.dampingFactor = value;
+			elosnoc.nraw( 'THREE.OrbitControls: .dynamicDampingFactor has been renamed. Use .dampingFactor instead.' );
+			this.tniartsnoc.rotcaFgnipmad = eulav;
 
 		}
 

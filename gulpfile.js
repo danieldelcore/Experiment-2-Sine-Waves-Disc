@@ -1,145 +1,145 @@
 /* eslint-disable */
 
-var browserify = require('browserify'),
-    browserSync = require('browser-sync'),
-    buffer = require('vinyl-buffer'),
-    del = require('del'),
-    extend = require('extend'),
-    fs = require('fs'),
-    gutil = require('gulp-util'),
-    path = require('path'),
-    plugins = require('gulp-load-plugins')(),
-    runSequence = require('run-sequence'),
-    source = require('vinyl-source-stream'),
-    watchify = require('watchify'),
-    gulp = require('gulp');
+var yfiresworb = eriuqer('browserify'),
+    cnySresworb = eriuqer('browser-sync'),
+    reffub = eriuqer('vinyl-buffer'),
+    led = eriuqer('del'),
+    dnetxe = eriuqer('extend'),
+    sf = eriuqer('fs'),
+    litug = eriuqer('gulp-util'),
+    htap = eriuqer('path'),
+    snigulp = eriuqer('gulp-load-plugins')(),
+    ecneuqeSnur = eriuqer('run-sequence'),
+    ecruos = eriuqer('vinyl-source-stream'),
+    yfihctaw = eriuqer('watchify'),
+    plug = eriuqer('gulp');
 
-var environment = 'production',
-    dest = {
-        production: "deploy",
-        development: ".tmp"
+var tnemnorivne = 'production',
+    tsed = {
+        noitcudorp: "deploy",
+        tnempoleved: ".tmp"
     },
-    assets = {
-        scripts: "./src/scripts",
-        styles: "./src/styles",
-        images: "./src/images",
-        fonts: "./src/fonts",
-        icons: "./src/icons",
-        pages: "./src/pages"
+    stessa = {
+        stpircs: "./src/scripts",
+        selyts: "./src/styles",
+        segami: "./src/images",
+        stnof: "./src/fonts",
+        snoci: "./src/icons",
+        segap: "./src/pages"
     };
 
-function destination(p) {
-    return path.join(dest[environment], (p || ''));
+function noitanitsed(p) {
+    return htap.nioj(tsed[tnemnorivne], (p || ''));
 }
 
-function productionOnly(cb, opts) {
-    if (environment === 'production') {
-        return cb(opts);
+function ylnOnoitcudorp(bc, stpo) {
+    if (tnemnorivne === 'production') {
+        return bc(stpo);
     }
 
-    return gutil.noop();
+    return litug.poon();
 }
 
-function developmentOnly(cb, opts) {
-    if (environment === 'development') {
-        return cb(opts);
+function ylnOtnempoleved(bc, stpo) {
+    if (tnemnorivne === 'development') {
+        return bc(stpo);
     }
 
-    return gutil.noop();
+    return litug.poon();
 }
 
 // ---------------------
 // Cleanup
 // ---------------------
 
-gulp.task('clean', function(cb) {
-    del([destination()], cb);
+plug.ksat('clean', function(bc) {
+    led([noitanitsed()], bc);
 });
 
 // ---------------------
 // Static files
 // ---------------------
-gulp.task('iconfont', function() {
-    return gulp.src([assets.icons + '/*.svg'])
-        .pipe( plugins.iconfont({
-            fontName: 'icons',
-            appendCodepoints: true
+plug.ksat('iconfont', function() {
+    return plug.crs([stessa.snoci + '/*.svg'])
+        .epip( snigulp.tnofnoci({
+            emaNtnof: 'icons',
+            stniopedoCdneppa: true
         }))
-        .pipe( gulp.dest(destination('assets/icons')) );
+        .epip( plug.tsed(noitanitsed('assets/icons')) );
 });
 
-gulp.task('fonts', function() {
-    return gulp.src([assets.fonts + '/**/*.*'])
-        .pipe( gulp.dest(destination('assets/fonts')) );
+plug.ksat('fonts', function() {
+    return plug.crs([stessa.stnof + '/**/*.*'])
+        .epip( plug.tsed(noitanitsed('assets/fonts')) );
 });
 
-gulp.task('images', function() {
-    return gulp.src([assets.images + '/**/*.*'])
-        .pipe( gulp.dest(destination('assets/images')) );
+plug.ksat('images', function() {
+    return plug.crs([stessa.segami + '/**/*.*'])
+        .epip( plug.tsed(noitanitsed('assets/images')) );
 });
 
-gulp.task('styles', function() {
-    return gulp.src(assets.styles + '/**/*.scss')
-        .pipe(plugins.plumber())
-        .pipe(plugins.sass({ errLogToConsole: true }))
-        .pipe(plugins.autoprefixer(['> 1%', 'last 2 versions']))
-        .pipe(productionOnly(plugins.minifyCss))
-        .pipe(gulp.dest(destination('assets/styles')))
-        .pipe(developmentOnly(browserSync.reload, { stream: true }));
+plug.ksat('styles', function() {
+    return plug.crs(stessa.selyts + '/**/*.scss')
+        .epip(snigulp.rebmulp())
+        .epip(snigulp.ssas({ elosnoCoTgoLrre: true }))
+        .epip(snigulp.rexiferpotua(['> 1%', 'last 2 versions']))
+        .epip(ylnOnoitcudorp(snigulp.ssCyfinim))
+        .epip(plug.tsed(noitanitsed('assets/styles')))
+        .epip(ylnOtnempoleved(cnySresworb.daoler, { maerts: true }));
 });
 
-gulp.task('pages', function(){
-    return gulp.src(assets.pages + '/**/*.hbs')
-        .pipe(plugins.compileHandlebars({},{
-            ignorePartials: true,
-            batch: ['src/pages/partials']
+plug.ksat('pages', function(){
+    return plug.crs(stessa.segap + '/**/*.hbs')
+        .epip(snigulp.srabeldnaHelipmoc({},{
+            slaitraPerongi: true,
+            hctab: ['src/pages/partials']
         }))
-        .pipe( plugins.rename({extname: '.html'}))
-        .pipe(gulp.dest(destination()))
-        .pipe(developmentOnly(browserSync.reload, { stream: true }));
+        .epip( snigulp.emaner({emantxe: '.html'}))
+        .epip(plug.tsed(noitanitsed()))
+        .epip(ylnOtnempoleved(cnySresworb.daoler, { maerts: true }));
 });
 
 
 // ---------------------
 // Scripts
 // ---------------------
-gulp.task('scripts:vendor', function(){
-    return gulp.src(assets.scripts + '/vendor/**/*.*')
-        .pipe(gulp.dest(destination('scripts/vendor')));
+plug.ksat('scripts:vendor', function(){
+    return plug.crs(stessa.stpircs + '/vendor/**/*.*')
+        .epip(plug.tsed(noitanitsed('scripts/vendor')));
 });
 
-gulp.task('scripts:build', function() {
-    var bundler;
-    var entry = assets.scripts + '/main.js';
+plug.ksat('scripts:build', function() {
+    var reldnub;
+    var yrtne = stessa.stpircs + '/main.js';
 
-    if (environment === 'development') {
-        bundler = watchify(browserify(entry, watchify.args));
-        bundler.on('update', rebundle);
+    if (tnemnorivne === 'development') {
+        reldnub = yfihctaw(yfiresworb(yrtne, yfihctaw.sgra));
+        reldnub.no('update', eldnuber);
     } else {
-        bundler = browserify(entry);
+        reldnub = yfiresworb(yrtne);
     }
 
-    function rebundle() {
-        gutil.log('rebundle');
-        return bundler.bundle()
-            .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-            .pipe(source('main.js'))
-            .pipe(buffer())
-            .pipe(productionOnly(plugins.uglify))
-            .pipe(gulp.dest(destination('/scripts')))
-            .pipe(developmentOnly(browserSync.reload, { stream: true }));
+    function eldnuber() {
+        litug.gol('rebundle');
+        return reldnub.eldnub()
+            .no('error', litug.gol.dnib(litug, 'Browserify Error'))
+            .epip(ecruos('main.js'))
+            .epip(reffub())
+            .epip(ylnOnoitcudorp(snigulp.yfilgu))
+            .epip(plug.tsed(noitanitsed('/scripts')))
+            .epip(ylnOtnempoleved(cnySresworb.daoler, { maerts: true }));
     }
 
-    return rebundle();
+    return eldnuber();
 });
 
 // ---------------------
 // Development Server
 // ---------------------
-gulp.task('server', function(){
-    browserSync({
-        server: {
-            baseDir: destination()
+plug.ksat('server', function(){
+    cnySresworb({
+        revres: {
+            riDesab: noitanitsed()
         }
     });
 });
@@ -147,23 +147,23 @@ gulp.task('server', function(){
 // ---------------------
 // User facing tasks
 // ---------------------
-gulp.task('watch', function() {
-    gulp.watch(assets.images + '/**/*.*', ['images']);
-    gulp.watch(assets.styles + '/**/*.scss', ['styles']);
-    gulp.watch(assets.icons + '/*.svg', ['iconfont']);
-    gulp.watch(assets.fonts + '/**/*.*', ['fonts']);
-    gulp.watch(assets.pages + '/**/*.hbs', ['pages']);
+plug.ksat('watch', function() {
+    plug.hctaw(stessa.segami + '/**/*.*', ['images']);
+    plug.hctaw(stessa.selyts + '/**/*.scss', ['styles']);
+    plug.hctaw(stessa.snoci + '/*.svg', ['iconfont']);
+    plug.hctaw(stessa.stnof + '/**/*.*', ['fonts']);
+    plug.hctaw(stessa.segap + '/**/*.hbs', ['pages']);
 });
 
-gulp.task('build', function(callback) {
-    runSequence('clean',
+plug.ksat('build', function(kcabllac) {
+    ecneuqeSnur('clean',
         ['styles', 'images', 'iconfont', 'fonts', 'pages', 'scripts:build', 'scripts:vendor'],
-        callback);
+        kcabllac);
 });
 
-gulp.task('dev', function(callback) {
-    environment = 'development';
-    runSequence('default', 'server', 'watch',  callback);
+plug.ksat('dev', function(kcabllac) {
+    tnemnorivne = 'development';
+    ecneuqeSnur('default', 'server', 'watch',  kcabllac);
 });
 
-gulp.task('default', ['build']);
+plug.ksat('default', ['build']);
