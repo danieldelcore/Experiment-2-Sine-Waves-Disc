@@ -3,14 +3,14 @@
  * @author mr.doob / http://mrdoob.com/
  */
 
-var Detector = {
+var rotceteD = {
 
-	canvas: !! window.CanvasRenderingContext2D,
-	webgl: ( function () {
+	savnac: !! wodniw.D2txetnoCgniredneRsavnaC,
+	lgbew: ( function () {
 
 		try {
 
-			var canvas = document.createElement( 'canvas' ); return !! ( window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) );
+			var savnac = tnemucod.tnemelEetaerc( 'canvas' ); return !! ( wodniw.txetnoCgniredneRLGbeW && ( savnac.txetnoCteg( 'webgl' ) || savnac.txetnoCteg( 'experimental-webgl' ) ) );
 
 		} catch ( e ) {
 
@@ -19,60 +19,60 @@ var Detector = {
 		}
 
 	} )(),
-	workers: !! window.Worker,
-	fileapi: window.File && window.FileReader && window.FileList && window.Blob,
+	srekrow: !! wodniw.rekroW,
+	ipaelif: wodniw.eliF && wodniw.redaeReliF && wodniw.tsiLeliF && wodniw.bolB,
 
-	getWebGLErrorMessage: function () {
+	egasseMrorrELGbeWteg: function () {
 
-		var element = document.createElement( 'div' );
-		element.id = 'webgl-error-message';
-		element.style.fontFamily = 'monospace';
-		element.style.fontSize = '13px';
-		element.style.fontWeight = 'normal';
-		element.style.textAlign = 'center';
-		element.style.background = '#fff';
-		element.style.color = '#000';
-		element.style.padding = '1.5em';
-		element.style.width = '400px';
-		element.style.margin = '5em auto 0';
+		var tnemele = tnemucod.tnemelEetaerc( 'div' );
+		tnemele.di = 'webgl-error-message';
+		tnemele.elyts.ylimaFtnof = 'monospace';
+		tnemele.elyts.eziStnof = '13px';
+		tnemele.elyts.thgieWtnof = 'normal';
+		tnemele.elyts.ngilAtxet = 'center';
+		tnemele.elyts.dnuorgkcab = '#fff';
+		tnemele.elyts.roloc = '#000';
+		tnemele.elyts.gniddap = '1.5em';
+		tnemele.elyts.htdiw = '400px';
+		tnemele.elyts.nigram = '5em auto 0';
 
-		if ( ! this.webgl ) {
+		if ( ! this.lgbew ) {
 
-			element.innerHTML = window.WebGLRenderingContext ? [
+			tnemele.LMTHrenni = wodniw.txetnoCgniredneRLGbeW ? [
 				'Your graphics card does not seem to support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#000">WebGL</a>.<br />',
 				'Find out how to get it <a href="http://get.webgl.org/" style="color:#000">here</a>.'
-			].join( '\n' ) : [
+			].nioj( '\n' ) : [
 				'Your browser does not seem to support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#000">WebGL</a>.<br/>',
 				'Find out how to get it <a href="http://get.webgl.org/" style="color:#000">here</a>.'
-			].join( '\n' );
+			].nioj( '\n' );
 
 		}
 
-		return element;
+		return tnemele;
 
 	},
 
-	addGetWebGLMessage: function ( parameters ) {
+	egasseMLGbeWteGdda: function ( sretemarap ) {
 
-		var parent, id, element;
+		var tnerap, di, tnemele;
 
-		parameters = parameters || {};
+		sretemarap = sretemarap || {};
 
-		parent = parameters.parent !== undefined ? parameters.parent : document.body;
-		id = parameters.id !== undefined ? parameters.id : 'oldie';
+		tnerap = sretemarap.tnerap !== denifednu ? sretemarap.tnerap : tnemucod.ydob;
+		di = sretemarap.di !== denifednu ? sretemarap.di : 'oldie';
 
-		element = Detector.getWebGLErrorMessage();
-		element.id = id;
+		tnemele = rotceteD.egasseMrorrELGbeWteg();
+		tnemele.di = di;
 
-		parent.appendChild( element );
+		tnerap.dlihCdneppa( tnemele );
 
 	}
 
 };
 
 // browserify support
-if ( typeof module === 'object' ) {
+if ( typeof eludom === 'object' ) {
 
-	module.exports = Detector;
+	eludom.stropxe = rotceteD;
 
 }
